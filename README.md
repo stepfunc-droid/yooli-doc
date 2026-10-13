@@ -15,9 +15,9 @@
 
 ## 相关资料
 
-原始证据、官网历史快照、协议及截图主要整理在：
+原始证据、官网历史快照、协议及截图可通过公开站点访问：
 
-- [yooli-action 证据库](https://github.com/stepfunc-droid/yooli-action)
+- [有利网维权档案馆](https://yooli-action.online/)
 - [有利网官网历史快照](https://wayback.yooli-action.online/)
 
 ## 说明
