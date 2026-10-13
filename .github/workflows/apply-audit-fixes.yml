@@ -1,0 +1,42 @@
+name: Apply yooli doc audit fixes
+
+on:
+  push:
+    branches:
+      - audit-fixes-2026-10-13
+    paths:
+      - 'scripts/apply_audit_fixes.py'
+      - '.github/workflows/apply-audit-fixes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit-fixes-2026-10-13
+          fetch-depth: 1
+          sparse-checkout: |
+            docs
+            scripts
+          sparse-checkout-cone-mode: true
+      - name: Apply fixes
+        run: python3 scripts/apply_audit_fixes.py
+      - name: Commit docs
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add docs
+          if git diff --cached --quiet; then
+            echo 'No doc changes.'
+            exit 0
+          fi
+          git commit -m '修正文档证据边界并补充到期时间统计'
+          git fetch origin audit-fixes-2026-10-13
+          git rebase origin/audit-fixes-2026-10-13
+          git push origin HEAD:audit-fixes-2026-10-13
