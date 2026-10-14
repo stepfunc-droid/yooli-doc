@@ -18,6 +18,8 @@
 
 ## 相关资料
 
+事件分析文档仓库：[stepfunc-droid/yooli-doc](https://github.com/stepfunc-droid/yooli-doc)。
+
 原始证据、官网历史快照、协议及截图可通过公开站点访问：
 
 - [有利网维权档案馆](https://yooli-action.online/)
