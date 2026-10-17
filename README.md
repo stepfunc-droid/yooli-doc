@@ -4,7 +4,7 @@
 
 这里的文档以“事实、平台自述、公开宣传、媒体报道、分析性疑点”分层整理。对于自融、资金池、虚假披露、关联交易等问题，在没有司法调查、完整流水或穿透式审计结论前，均不作为已经查实的事实表述。
 
-**English documentation:** [README.en.md](README.en.md)
+**English documentation:** [docs-en/README.md](docs-en/README.md)
 
 ## 主要文档
 
