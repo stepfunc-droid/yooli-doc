@@ -13,17 +13,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Collect Wikisource links
+      - name: Test Wikisource PDF export
         shell: bash
         run: |
-          grep -RIn --include='*.md' 'zh\.wikisource\.org' . | sort > wikisource-links-report.txt || true
-      - name: Commit report
+          mkdir -p archive/wikisource
+          python - <<'PY'
+          import urllib.parse, urllib.request
+          title='何某1、郑某1、尹某1等诈骗罪一审刑事判决书'
+          url='https://ws-export.wmcloud.org/?format=pdf&lang=zh&page='+urllib.parse.quote(title)
+          try:
+              with urllib.request.urlopen(url, timeout=120) as r:
+                  data=r.read()
+              print('bytes', len(data), data[:16])
+              if data.startswith(b'%PDF'):
+                  open('archive/wikisource/（2018）川1403刑初112号_何某1等诈骗罪一审刑事判决书.pdf','wb').write(data)
+              else:
+                  open('wikisource-pdf-test.txt','wb').write(data[:10000])
+          except Exception as e:
+              open('wikisource-pdf-test.txt','w').write(repr(e))
+          PY
+      - name: Commit result
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add wikisource-links-report.txt
+          git add archive/wikisource wikisource-pdf-test.txt 2>/dev/null || true
           if ! git diff --cached --quiet; then
-            git commit -m 'chore: audit Wikisource links'
+            git commit -m 'chore: test Wikisource PDF export'
             git push
           fi
