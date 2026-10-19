@@ -183,10 +183,10 @@ Most of these questions remain unanswered by public evidence. This article there
    https://tech.ifeng.com/a/20160110/41537083_0.shtml
 
 6. Guangzhou Intermediate People's Court, (2023) Yue 01 Min Zhong No. 8824, involving Beijing Litong and Yooli loan relationships  
-   https://zh.wikisource.org/wiki/广东省广州市中级人民法院（2023）粤01民终8824号民事判决书
+   [《广东省广州市中级人民法院（2023）粤01民终8824号民事判决书》](https://zh.wikisource.org/wiki/广东省广州市中级人民法院（2023）粤01民终8824号民事判决书)
 
 7. Chen Changhe / Shenzhen Chengxixiang financing-guarantee recovery dispute  
-   https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书
+   [《陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书》（2020）琼96民终2868号](https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书)
 
 8. Shenzhen Honghe Boji Commercial Factoring liquidation notice, 2020-04-24  
    https://ep.ycwb.com/epaper/xkb/h5/html5/2020-04/24/content_321_259134.htm
