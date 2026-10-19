@@ -1,0 +1,29 @@
+name: tmp-wikisource-audit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-wikisource-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect Wikisource links
+        shell: bash
+        run: |
+          grep -RIn --include='*.md' 'zh\.wikisource\.org' . | sort > wikisource-links-report.txt || true
+      - name: Commit report
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add wikisource-links-report.txt
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: audit Wikisource links'
+            git push
+          fi
