@@ -62,11 +62,11 @@ Principal sources:
 - Chen Dan — Chengxixiang  
   https://item.wusiku.top/A/fj/5d/da/fu.htm
 - Chen Changhe — Chengxixiang  
-  [《陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书》（2020）琼96民终2868号](https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书)
+  https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书
 - Cheng Bin — Guoyin Shengda  
-  [《深圳市国银盛达融资担保有限公司、程斌追偿权纠纷民事一审民事判决书》（2022）皖0881民初798号](https://zh.wikisource.org/zh-hans/深圳市国银盛达融资担保有限公司、程斌追偿权纠纷民事一审民事判决书)
+  https://zh.wikisource.org/zh-hans/深圳市国银盛达融资担保有限公司、程斌追偿权纠纷民事一审民事判决书
 - Huang Panpan — Guoyin Shengda  
-  [《广西壮族自治区靖西市人民法院（2023）桂1081民初3928号民事判决书》](https://zh.wikisource.org/wiki/广西壮族自治区靖西市人民法院（2023）桂1081民初3928号民事判决书)
+  https://zh.wikisource.org/wiki/广西壮族自治区靖西市人民法院（2023）桂1081民初3928号民事判决书
 
 These litigated samples cannot be used to estimate an average platform-wide compensation delay because litigation naturally selects long-unpaid loans. But they are enough to establish that **“first borrower default = guarantor formally compensates that day” cannot be assumed as a universal fact in Yooli's consumer-loan system.**
 

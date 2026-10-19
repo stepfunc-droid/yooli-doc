@@ -32,9 +32,9 @@ This five-party structure is also confirmed in historical court decisions. In th
 Sources:
 
 - Chen Changhe / Shenzhen Chengxixiang recovery dispute  
-  [《陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书》（2020）琼96民终2868号](https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书)
+  https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书
 - Guangzhou Intermediate People's Court, (2023) Yue 01 Min Zhong No. 8824  
-  [《广东省广州市中级人民法院（2023）粤01民终8824号民事判决书》](https://zh.wikisource.org/wiki/广东省广州市中级人民法院（2023）粤01民终8824号民事判决书)
+  https://zh.wikisource.org/wiki/广东省广州市中级人民法院（2023）粤01民终8824号民事判决书
 
 Thus, when the contract says Party E may dispose of claims on behalf of lenders, the relevant entity is **Yooli's operating company acting under lender authorization.**
 

@@ -109,7 +109,7 @@ The judgment also confirms that United Lixin had qualifications for financial-le
 Source:
 
 - Beijing Financial Court, (2022) Jing 74 Min Zhong No. 1780:  
-  [《北京金融法院（2022）京74民终1780号民事判决书》](https://zh.wikisource.org/wiki/北京金融法院（2022）京74民终1780号民事判决书)
+  https://zh.wikisource.org/wiki/北京金融法院（2022）京74民终1780号民事判决书
 
 ### 3.2 United Lixin and Lixin Kuaijie share the same core legal representative, Dai Hongguang
 
@@ -132,8 +132,8 @@ Haidian District Court cases including **(2022) Jing 0108 Min Chu No. 5231** and
 
 Examples:
 
-- [《北京市海淀区人民法院（2022）京0108民初5231号民事判决书》](https://zh.wikisource.org/wiki/北京市海淀区人民法院（2022）京0108民初5231号民事判决书)
-- [《北京市海淀区人民法院（2022）京0108民初5151号民事判决书》](https://zh.wikisource.org/wiki/北京市海淀区人民法院（2022）京0108民初5151号民事判决书)
+- https://zh.wikisource.org/wiki/北京市海淀区人民法院（2022）京0108民初5231号民事判决书
+- https://zh.wikisource.org/wiki/北京市海淀区人民法院（2022）京0108民初5151号民事判决书
 
 ### 3.4 United Lixin was still litigating to recover historical auto-loan assets in 2026
 
@@ -185,7 +185,7 @@ In the Yooli transaction, the five-party agreement involved the borrower, lender
 Source:
 
 - Guangzhou Intermediate People’s Court, (2023) Yue 01 Min Zhong No. 8824:  
-  [《广东省广州市中级人民法院（2023）粤01民终8824号民事判决书》](https://zh.wikisource.org/wiki/广东省广州市中级人民法院（2023）粤01民终8824号民事判决书)
+  https://zh.wikisource.org/wiki/广东省广州市中级人民法院（2023）粤01民终8824号民事判决书
 
 This shows that Litong’s offline risk-control, security, and post-loan system was not exclusive to Yooli. It functioned as an “asset production platform” capable of routing similar assets to multiple funding sources.
 
@@ -207,7 +207,7 @@ Litong therefore could accumulate two types of assets with real economic value i
 Source:
 
 - Beijing Chaoyang District People’s Court, (2022) Jing 0105 Min Chu No. 40932:  
-  [《北京市朝阳区人民法院（2022）京0105民初40932号民事判决书》](https://zh.wikisource.org/wiki/北京市朝阳区人民法院（2022）京0105民初40932号民事判决书)
+  https://zh.wikisource.org/wiki/北京市朝阳区人民法院（2022）京0105民初40932号民事判决书
 
 ### 4.4 Public corporate aggregators currently show Litong as still active
 

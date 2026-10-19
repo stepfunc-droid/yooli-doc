@@ -83,7 +83,7 @@ Thus, by at least 2014, the relationship was not merely an abstract “asset par
 Source:
 
 - *He Mou 1, Zheng Mou 1, Yin Mou 1 et al., First-Instance Criminal Judgment for Fraud*, evidence items 84 and 85  
-  [《何某1、郑某1、尹某1等诈骗罪一审刑事判决书》（2018）川1403刑初112号](https://zh.wikisource.org/wiki/何某1、郑某1、尹某1等诈骗罪一审刑事判决书)
+  https://zh.wikisource.org/wiki/何某1、郑某1、尹某1等诈骗罪一审刑事判决书
 
 This evidence is unusually useful because it identifies both who produced the consumer-loan assets and how lender money entered the consumption transaction.
 
@@ -169,7 +169,7 @@ A similar mechanism appears in later Puhui Kuaixin assets. In the Cheng Bin case
 Source:
 
 - Tongcheng City People's Court, Anhui, (2022) Wan 0881 Min Chu No. 798  
-  [《安徽省桐城市人民法院（2022）皖0881民初798号民事判决书》](https://zh.wikisource.org/wiki/安徽省桐城市人民法院（2022）皖0881民初798号民事判决书)
+  https://zh.wikisource.org/wiki/安徽省桐城市人民法院（2022）皖0881民初798号民事判决书
 
 ### A more plausible but still unproven reading of case No. 21610
 
