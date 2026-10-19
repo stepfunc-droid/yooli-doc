@@ -1,0 +1,65 @@
+name: tmp-fix-wikisource-format
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-fix-wikisource-format.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore plain Wikisource URLs and append case numbers to titles
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          roots = [Path('docs'), Path('docs-en')]
+          changed = []
+          link_re = re.compile(r'\[[^\]]*\]\((https://zh\.wikisource\.org/[^)]+)\)')
+
+          title_replacements = {
+              '《何某1、郑某1、尹某1等诈骗罪一审刑事判决书》': '《何某1、郑某1、尹某1等诈骗罪一审刑事判决书》（2018）川1403刑初112号',
+              '《陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书》': '《陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书》（2020）琼96民终2868号',
+              '《深圳市国银盛达融资担保有限公司、程斌追偿权纠纷民事一审民事判决书》': '《深圳市国银盛达融资担保有限公司、程斌追偿权纠纷民事一审民事判决书》（2022）皖0881民初798号',
+          }
+
+          for root in roots:
+              for p in root.rglob('*.md'):
+                  s = p.read_text(encoding='utf-8')
+                  new = link_re.sub(r'\1', s)
+                  for old, rep in title_replacements.items():
+                      # Only append when the case number is not already immediately present.
+                      new = new.replace(old + '（2018）川1403刑初112号', old + '（2018）川1403刑初112号') if '何某1' in old else new
+                      new = new.replace(old + '（2020）琼96民终2868号', old + '（2020）琼96民终2868号') if '陈昌和' in old else new
+                      new = new.replace(old + '（2022）皖0881民初798号', old + '（2022）皖0881民初798号') if '程斌' in old else new
+                      # Replace bare title occurrences only.
+                      if rep not in new:
+                          new = new.replace(old, rep)
+                      else:
+                          # There may be multiple occurrences; protect already-numbered ones while updating bare ones.
+                          marker = '__CASE_NUMBERED_TITLE__'
+                          new = new.replace(rep, marker)
+                          new = new.replace(old, rep)
+                          new = new.replace(marker, rep)
+                  if new != s:
+                      p.write_text(new, encoding='utf-8')
+                      changed.append(str(p))
+
+          print('\n'.join(changed))
+          PY
+          rm -f .github/workflows/tmp-fix-wikisource-format.yml
+      - name: Commit fix
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'fix: preserve plain Wikisource URL formatting'
+          git push
