@@ -9,36 +9,47 @@ permissions:
   contents: write
 
 jobs:
-  audit:
+  normalize:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Test Wikisource PDF export
+      - name: Add case numbers to Wikisource citations
         shell: bash
         run: |
-          mkdir -p archive/wikisource
           python - <<'PY'
-          import urllib.parse, urllib.request
-          title='何某1、郑某1、尹某1等诈骗罪一审刑事判决书'
-          url='https://ws-export.wmcloud.org/?format=pdf&lang=zh&page='+urllib.parse.quote(title)
-          try:
-              with urllib.request.urlopen(url, timeout=120) as r:
-                  data=r.read()
-              print('bytes', len(data), data[:16])
-              if data.startswith(b'%PDF'):
-                  open('archive/wikisource/（2018）川1403刑初112号_何某1等诈骗罪一审刑事判决书.pdf','wb').write(data)
-              else:
-                  open('wikisource-pdf-test.txt','wb').write(data[:10000])
-          except Exception as e:
-              open('wikisource-pdf-test.txt','w').write(repr(e))
+          from pathlib import Path
+
+          replacements = {
+            'https://zh.wikisource.org/wiki/何某1、郑某1、尹某1等诈骗罪一审刑事判决书': '[《何某1、郑某1、尹某1等诈骗罪一审刑事判决书》（2018）川1403刑初112号](https://zh.wikisource.org/wiki/何某1、郑某1、尹某1等诈骗罪一审刑事判决书)',
+            'https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书': '[《陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书》（2020）琼96民终2868号](https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书)',
+            'https://zh.wikisource.org/zh-hans/深圳市国银盛达融资担保有限公司、程斌追偿权纠纷民事一审民事判决书': '[《深圳市国银盛达融资担保有限公司、程斌追偿权纠纷民事一审民事判决书》（2022）皖0881民初798号](https://zh.wikisource.org/zh-hans/深圳市国银盛达融资担保有限公司、程斌追偿权纠纷民事一审民事判决书)',
+            'https://zh.wikisource.org/wiki/安徽省桐城市人民法院（2022）皖0881民初798号民事判决书': '[《安徽省桐城市人民法院（2022）皖0881民初798号民事判决书》](https://zh.wikisource.org/wiki/安徽省桐城市人民法院（2022）皖0881民初798号民事判决书)',
+            'https://zh.wikisource.org/wiki/广西壮族自治区靖西市人民法院（2023）桂1081民初3928号民事判决书': '[《广西壮族自治区靖西市人民法院（2023）桂1081民初3928号民事判决书》](https://zh.wikisource.org/wiki/广西壮族自治区靖西市人民法院（2023）桂1081民初3928号民事判决书)',
+            'https://zh.wikisource.org/wiki/广东省广州市中级人民法院（2023）粤01民终8824号民事判决书': '[《广东省广州市中级人民法院（2023）粤01民终8824号民事判决书》](https://zh.wikisource.org/wiki/广东省广州市中级人民法院（2023）粤01民终8824号民事判决书)',
+            'https://zh.wikisource.org/wiki/北京金融法院（2022）京74民终1780号民事判决书': '[《北京金融法院（2022）京74民终1780号民事判决书》](https://zh.wikisource.org/wiki/北京金融法院（2022）京74民终1780号民事判决书)',
+            'https://zh.wikisource.org/wiki/北京市海淀区人民法院（2022）京0108民初5231号民事判决书': '[《北京市海淀区人民法院（2022）京0108民初5231号民事判决书》](https://zh.wikisource.org/wiki/北京市海淀区人民法院（2022）京0108民初5231号民事判决书)',
+            'https://zh.wikisource.org/wiki/北京市海淀区人民法院（2022）京0108民初5151号民事判决书': '[《北京市海淀区人民法院（2022）京0108民初5151号民事判决书》](https://zh.wikisource.org/wiki/北京市海淀区人民法院（2022）京0108民初5151号民事判决书)',
+            'https://zh.wikisource.org/wiki/北京市朝阳区人民法院（2022）京0105民初40932号民事判决书': '[《北京市朝阳区人民法院（2022）京0105民初40932号民事判决书》](https://zh.wikisource.org/wiki/北京市朝阳区人民法院（2022）京0105民初40932号民事判决书)',
+          }
+
+          changed=[]
+          for p in list(Path('docs').rglob('*.md')) + list(Path('docs-en').rglob('*.md')):
+              s=p.read_text(encoding='utf-8')
+              new=s
+              for old, rep in replacements.items():
+                  new=new.replace(old, rep)
+              if new != s:
+                  p.write_text(new, encoding='utf-8')
+                  changed.append(str(p))
+          print('\n'.join(changed))
           PY
-      - name: Commit result
+          rm -f wikisource-links-report.txt wikisource-pdf-test.txt
+          rm -f .github/workflows/tmp-wikisource-audit.yml
+      - name: Commit changes
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add archive/wikisource wikisource-pdf-test.txt 2>/dev/null || true
-          if ! git diff --cached --quiet; then
-            git commit -m 'chore: test Wikisource PDF export'
-            git push
-          fi
+          git add -A
+          git commit -m 'docs: add case numbers to Wikisource citations'
+          git push
