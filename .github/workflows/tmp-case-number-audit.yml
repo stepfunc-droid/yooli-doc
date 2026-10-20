@@ -1,0 +1,62 @@
+name: tmp-case-number-audit
+
+on:
+  push:
+    branches:
+      - audit-case-numbers
+    paths:
+      - '.github/workflows/tmp-case-number-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit-case-numbers
+      - name: Audit case citations missing case numbers
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          case_no = re.compile(r'[（(]20\d{2}[）)].{0,40}号')
+          keywords = re.compile(r'(判决书|裁定书|调解书|决定书|追偿权纠纷案|民间借贷纠纷案|刑事案件|民事案件|诉.+?纠纷案)')
+          urlish = re.compile(r'https?://')
+          out=[]
+          for root in ('docs','docs-en'):
+              for p in sorted(Path(root).rglob('*.md')):
+                  lines=p.read_text(encoding='utf-8').splitlines()
+                  for i,line in enumerate(lines):
+                      if not keywords.search(line):
+                          continue
+                      if case_no.search(line):
+                          continue
+                      # focus on likely citation/title lines, not general prose
+                      stripped=line.strip()
+                      likely = (
+                          stripped.startswith(('-', '*')) or
+                          re.match(r'^\d+\.\s', stripped) or
+                          '来源' in ''.join(lines[max(0,i-3):i+1]) or
+                          'Source' in ''.join(lines[max(0,i-3):i+1]) or
+                          '裁判' in stripped or '判决书' in stripped or '裁定书' in stripped
+                      )
+                      if not likely:
+                          continue
+                      ctx='\n'.join(f'{j+1}: {lines[j]}' for j in range(max(0,i-1), min(len(lines),i+3)))
+                      out.append(f'FILE: {p}\n{ctx}\n---')
+          Path('case-number-audit.txt').write_text('\n\n'.join(out),encoding='utf-8')
+          print(f'{len(out)} candidates')
+          PY
+      - name: Commit report
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add case-number-audit.txt
+          git commit -m 'chore: generate case-number audit report'
+          git push origin HEAD:audit-case-numbers
