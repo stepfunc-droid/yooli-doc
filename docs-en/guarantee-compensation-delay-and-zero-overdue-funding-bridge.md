@@ -48,10 +48,10 @@ A sample of other Yooli consumer-loan recovery cases shows the pattern repeatedl
 | Xie — Chengxixiang | Repayment due from Aug. 2016; borrower failed to pay as agreed | 2018-05-11 | Nearly two years; court expressly found no timely compensation |
 | Liu — Chengxixiang | Overdue calculated from 2015-11-07 | 2018-05-08 | Complaint calculated **913 days** overdue |
 | Zhang — Chengxixiang | Failure to repay according to contract from Dec. 2015 | 2018-05-08 | Plaintiff calculated **871 days** overdue |
-| Chen Dan — Chengxixiang | Loan Nov. 2014; contract matured Nov. 2015; not performed as agreed | 2018-04-20 | About 2 years 5 months after final maturity |
-| Chen Changhe — Chengxixiang | Loan Aug. 2016; only one installment repaid, remaining 17 unpaid | 2018-11-13 | Long period of nonperformance before compensation |
-| Cheng Bin — Guoyin Shengda | Overdue from **2018-09-27** | **2019-06-17** | About 9 months |
-| Huang Panpan — Guoyin Shengda | Overdue from **2018-09-15** | **2019-07-29** | More than 10 months |
+| Chen Dan — Chengxixiang — (2018) Chuan 0121 Min Chu No. 3396 | Loan Nov. 2014; contract matured Nov. 2015; not performed as agreed | 2018-04-20 | About 2 years 5 months after final maturity |
+| Chen Changhe — Chengxixiang — (2020) Qiong 96 Min Zhong No. 2868 | Loan Aug. 2016; only one installment repaid, remaining 17 unpaid | 2018-11-13 | Long period of nonperformance before compensation |
+| Cheng Bin — Guoyin Shengda — (2022) Wan 0881 Min Chu No. 798 | Overdue from **2018-09-27** | **2019-06-17** | About 9 months |
+| Huang Panpan — Guoyin Shengda — (2023) Gui 1081 Min Chu No. 3928 | Overdue from **2018-09-15** | **2019-07-29** | More than 10 months |
 
 Principal sources:
 
@@ -59,13 +59,13 @@ Principal sources:
   https://www.chinalawyer.co/blog/深圳市诚信祥融资担保有限公司与刘亮追偿权纠纷一审民事判决书-1/
 - Zhang — Chengxixiang  
   https://www.chinalawyer.co/blog/深圳市诚信祥融资担保有限公司与张宇追偿权纠纷一审民事判决书-1/
-- Chen Dan — Chengxixiang  
+- Chen Dan — Chengxixiang — (2018) Chuan 0121 Min Chu No. 3396  
   https://item.wusiku.top/A/fj/5d/da/fu.htm
-- Chen Changhe — Chengxixiang  
+- Chen Changhe — Chengxixiang — (2020) Qiong 96 Min Zhong No. 2868  
   https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书
-- Cheng Bin — Guoyin Shengda  
+- Cheng Bin — Guoyin Shengda — (2022) Wan 0881 Min Chu No. 798  
   https://zh.wikisource.org/zh-hans/深圳市国银盛达融资担保有限公司、程斌追偿权纠纷民事一审民事判决书
-- Huang Panpan — Guoyin Shengda  
+- Huang Panpan — Guoyin Shengda — (2023) Gui 1081 Min Chu No. 3928  
   https://zh.wikisource.org/wiki/广西壮族自治区靖西市人民法院（2023）桂1081民初3928号民事判决书
 
 These litigated samples cannot be used to estimate an average platform-wide compensation delay because litigation naturally selects long-unpaid loans. But they are enough to establish that **“first borrower default = guarantor formally compensates that day” cannot be assumed as a universal fact in Yooli's consumer-loan system.**

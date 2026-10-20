@@ -45,7 +45,7 @@ The Chen Changhe case, for example, reviews the contracts among Yooli, Puhui Kua
 
 Source:
 
-- Chen Changhe / Shenzhen Chengxixiang Financing Guarantee recovery dispute  
+- Chen Changhe / Shenzhen Chengxixiang Financing Guarantee recovery dispute — (2020) Qiong 96 Min Zhong No. 2868  
   https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书
 
 ### 1.3 Chengxixiang was, at the relevant time, a licensed financing-guarantee company

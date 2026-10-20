@@ -68,7 +68,7 @@ A public criminal judgment quoted a **2014-04-10 Strategic Cooperation Agreement
 
 Source:
 
-- *He XX, Zheng XX, Yin XX et al., First-Instance Criminal Judgment for Fraud*  
+- *He XX, Zheng XX, Yin XX et al., First-Instance Criminal Judgment for Fraud* — (2018) Chuan 1403 Xing Chu No. 112  
   https://zh.wikisource.org/wiki/何某1、郑某1、尹某1等诈骗罪一审刑事判决书
 
 Later recovery cases repeatedly show a similar chain:
@@ -77,7 +77,7 @@ Later recovery cases repeatedly show a similar chain:
 
 Related decision:
 
-- *Chen Changhe v. Shenzhen Chengxixiang Financing Guarantee Co., Ltd., Second-Instance Judgment in Recovery-Right Dispute*  
+- *Chen Changhe v. Shenzhen Chengxixiang Financing Guarantee Co., Ltd., Second-Instance Judgment in Recovery-Right Dispute* — (2020) Qiong 96 Min Zhong No. 2868  
   https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书
 
 These materials establish that Puhui Kuaixin performed borrower acquisition, underwriting, document submission, and related post-loan work rather than merely providing advertising leads.
