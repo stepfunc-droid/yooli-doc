@@ -22,8 +22,7 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import requests,re
-          from bs4 import BeautifulSoup
+          import requests,re,html
 
           sources = {
             '裴浩棋':'https://www.finlaw.pku.edu.cn/jrfy/gk/2020/2020zd104j/37finlaw521844.htm',
@@ -38,21 +37,22 @@ jobs:
             try:
               r=requests.get(url,headers={'User-Agent':'Mozilla/5.0'},timeout=40)
               r.encoding=r.apparent_encoding or r.encoding
-              soup=BeautifulSoup(r.text,'html.parser')
-              text=' '.join(soup.stripped_strings)
+              raw=r.text
+              raw=re.sub(r'<script\b[^>]*>.*?</script>',' ',raw,flags=re.I|re.S)
+              raw=re.sub(r'<style\b[^>]*>.*?</style>',' ',raw,flags=re.I|re.S)
+              text=html.unescape(re.sub(r'<[^>]+>',' ',raw))
               text=re.sub(r'\s+',' ',text)
               matches=[]
               for m in pat.finditer(text):
                 s='（'+m.group(1)+'）'+m.group(2)
                 if s not in matches: matches.append(s)
-              out.append(f'## {name}\nHTTP: {r.status_code}\nMATCHES: {matches[:80]}')
-              # contexts around party name and first occurrences of case-number-like starts
-              for key in (name,'案号','民 事 判 决 书','民事判决书','民 事 裁 定 书','民事裁定书'):
+              out.append(f'## {name}\nHTTP: {r.status_code}\nMATCHES: {matches[:100]}')
+              for key in (name,'案号','民事判决书','民事裁定书'):
                 start=0; count=0
-                while count<3:
+                while count<4:
                   i=text.find(key,start)
                   if i<0: break
-                  out.append(f'SNIP {key}: '+text[max(0,i-400):i+1200])
+                  out.append(f'SNIP {key}: '+text[max(0,i-500):i+1600])
                   start=i+len(key); count+=1
             except Exception as e:
               out.append(f'## {name}\nERROR: {e!r}')
