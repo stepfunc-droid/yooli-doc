@@ -17,70 +17,53 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: audit-case-numbers
-      - name: Probe cited sources for case numbers
+      - name: Extract case numbers from rendered source text
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
-          import requests,re,subprocess,tempfile,os
+          import requests,re
+          from bs4 import BeautifulSoup
 
           sources = {
-            '王永超':'https://www.sdcourt.gov.cn/lymyfy/402927/402917/8927143/2022101709080771047.pdf',
             '裴浩棋':'https://www.finlaw.pku.edu.cn/jrfy/gk/2020/2020zd104j/37finlaw521844.htm',
             '任某':'https://www.chinalawyer.co/blog/深圳市诚信祥融资担保有限公司与任某追偿权纠纷一审民事裁定书/',
             '张宇':'https://www.chinalawyer.co/blog/深圳市诚信祥融资担保有限公司与张宇追偿权纠纷一审民事判决书-1/',
             '刘亮':'https://www.chinalawyer.co/blog/深圳市诚信祥融资担保有限公司与刘亮追偿权纠纷一审民事判决书-1/',
             '谢思易':'https://www.chinalawyer.co/blog/深圳市诚信祥融资担保有限公司与谢思易追偿权纠纷一审民事判决书/',
-            '陈丹':'https://item.wusiku.top/A/fj/5d/da/fu.htm',
           }
-          pats=[
-            re.compile(r'（20\d{2}）[^<>\n\r]{1,45}?号'),
-            re.compile(r'\(20\d{2}\)[^<>\n\r]{1,45}?号'),
-          ]
+          pat=re.compile(r'[（(]\s*(20\d{2})\s*[）)]\s*([\u4e00-\u9fffA-Za-z0-9]+?号)')
           out=[]
-          headers={'User-Agent':'Mozilla/5.0'}
           for name,url in sources.items():
             try:
-              r=requests.get(url,headers=headers,timeout=40)
-              out.append(f'## {name}\nURL: {url}\nHTTP: {r.status_code} bytes={len(r.content)}')
-              if url.lower().endswith('.pdf') and r.ok:
-                with tempfile.NamedTemporaryFile(suffix='.pdf',delete=False) as f:
-                  f.write(r.content); fn=f.name
-                txt=fn+'.txt'
-                try:
-                  p=subprocess.run(['pdftotext',fn,txt],capture_output=True,text=True,timeout=60)
-                  text=Path(txt).read_text(errors='ignore') if Path(txt).exists() else ''
-                  out.append('PDFTOTEXT: '+('ok' if text else 'empty')+' stderr='+p.stderr[:300])
-                finally:
-                  for x in (fn,txt):
-                    try: os.unlink(x)
-                    except: pass
-              else:
-                r.encoding=r.apparent_encoding or r.encoding
-                text=r.text
+              r=requests.get(url,headers={'User-Agent':'Mozilla/5.0'},timeout=40)
+              r.encoding=r.apparent_encoding or r.encoding
+              soup=BeautifulSoup(r.text,'html.parser')
+              text=' '.join(soup.stripped_strings)
+              text=re.sub(r'\s+',' ',text)
               matches=[]
-              for pat in pats:
-                matches += pat.findall(text)
-              # include unique matches and snippets around key words
-              uniq=[]
-              for m in matches:
-                m=re.sub(r'\s+',' ',m)
-                if m not in uniq: uniq.append(m)
-              out.append('MATCHES: '+repr(uniq[:30]))
-              for key in ('案号','民事判决书','民事裁定书','裁判书字号'):
-                idx=text.find(key)
-                if idx>=0:
-                  out.append('SNIP '+key+': '+re.sub(r'\s+',' ',text[max(0,idx-200):idx+500])[:800])
+              for m in pat.finditer(text):
+                s='（'+m.group(1)+'）'+m.group(2)
+                if s not in matches: matches.append(s)
+              out.append(f'## {name}\nHTTP: {r.status_code}\nMATCHES: {matches[:80]}')
+              # contexts around party name and first occurrences of case-number-like starts
+              for key in (name,'案号','民 事 判 决 书','民事判决书','民 事 裁 定 书','民事裁定书'):
+                start=0; count=0
+                while count<3:
+                  i=text.find(key,start)
+                  if i<0: break
+                  out.append(f'SNIP {key}: '+text[max(0,i-400):i+1200])
+                  start=i+len(key); count+=1
             except Exception as e:
-              out.append(f'ERROR: {e!r}')
+              out.append(f'## {name}\nERROR: {e!r}')
             out.append('')
-          Path('source-case-number-report.txt').write_text('\n'.join(out),encoding='utf-8')
+          Path('rendered-case-number-report.txt').write_text('\n'.join(out),encoding='utf-8')
           PY
       - name: Commit report
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add source-case-number-report.txt
-          git commit -m 'chore: probe cited judgment case numbers'
+          git add rendered-case-number-report.txt
+          git commit -m 'chore: extract rendered judgment case numbers'
           git push origin HEAD:audit-case-numbers
