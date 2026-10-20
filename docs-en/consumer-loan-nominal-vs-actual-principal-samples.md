@@ -12,7 +12,7 @@
 | Case | Commodity / actual amount (RMB) | Yooli nominal loan principal (RMB) | One-time loan-management fee (RMB) | Fee / actual amount | Guarantor claim / actual compensation (RMB) |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Wang Yongchao | 3,980 | 5,174 | 1,194 | 30.0% | 8,492.26 |
-| Pei | 3,690 | 4,428 | 738 | 20.0% | 6,724.66 |
+| Pei — (2018) Yu 0185 Min Chu No. 5149 | 3,690 | 4,428 | 738 | 20.0% | 6,724.66 |
 | Ren | 3,498 | 4,198 | 700 | 20.0% | 6,453.73 |
 | Zhang | 4,888 | 6,110 | 1,222 | 25.0% | 9,657.87 |
 | Liu | 3,299 | 4,454 | 1,155 | 35.0% | 7,615.00* |
@@ -100,7 +100,7 @@ This does not prove asset transfer. It provides a concrete asset-side explanatio
    https://www.sdcourt.gov.cn/lymyfy/402927/402917/8927143/2022101709080771047.pdf
 
 2. Peking University Financial Law Research Center, empirical study of 4,531 online-lending intermediation-fee judgments  
-   Pei case: commodity / financing amount RMB 3,690; management fee RMB 738; nominal principal RMB 4,428.  
+   Pei case, (2018) Yu 0185 Min Chu No. 5149: commodity / financing amount RMB 3,690; management fee RMB 738; nominal principal RMB 4,428.  
    https://www.finlaw.pku.edu.cn/jrfy/gk/2020/2020zd104j/37finlaw521844.htm
 
 3. Chengxixiang v. Ren, recovery-right dispute  

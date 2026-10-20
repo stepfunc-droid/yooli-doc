@@ -31,7 +31,7 @@ This five-party structure is also confirmed in historical court decisions. In th
 
 Sources:
 
-- Chen Changhe / Shenzhen Chengxixiang recovery dispute  
+- Chen Changhe / Shenzhen Chengxixiang recovery dispute — (2020) Qiong 96 Min Zhong No. 2868  
   https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书
 - Guangzhou Intermediate People's Court, (2023) Yue 01 Min Zhong No. 8824  
   https://zh.wikisource.org/wiki/广东省广州市中级人民法院（2023）粤01民终8824号民事判决书

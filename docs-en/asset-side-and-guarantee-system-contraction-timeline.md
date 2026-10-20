@@ -26,7 +26,7 @@ Sources:
   https://zh.wikisource.org/zh-hans/安徽省桐城市人民法院（2022）皖0881民初798号民事判决书
 - Guoyin Shengda v. Huang Panpan:  
   https://zh.wikisource.org/wiki/广西壮族自治区靖西市人民法院（2023）桂1081民初3928号民事判决书
-- Chengxixiang v. Chen Changhe:  
+- Chengxixiang v. Chen Changhe — (2020) Qiong 96 Min Zhong No. 2868:  
   https://zh.wikisource.org/wiki/陈昌和、深圳市诚信祥融资担保有限公司追偿权纠纷民事二审民事判决书
 
 This is consistent with the project’s separate finding that in 2019 Yooli could show “zero overdue” while cumulative compensation continued rising. A material share of underlying risk may initially have accumulated in asset-side and guarantee institutions rather than appearing immediately as lender-side delinquency.

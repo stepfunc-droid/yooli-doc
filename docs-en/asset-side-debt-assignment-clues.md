@@ -82,7 +82,7 @@ Thus, by at least 2014, the relationship was not merely an abstract “asset par
 
 Source:
 
-- *He Mou 1, Zheng Mou 1, Yin Mou 1 et al., First-Instance Criminal Judgment for Fraud*, evidence items 84 and 85  
+- *He Mou 1, Zheng Mou 1, Yin Mou 1 et al., First-Instance Criminal Judgment for Fraud* — (2018) Chuan 1403 Xing Chu No. 112, evidence items 84 and 85  
   https://zh.wikisource.org/wiki/何某1、郑某1、尹某1等诈骗罪一审刑事判决书
 
 This evidence is unusually useful because it identifies both who produced the consumer-loan assets and how lender money entered the consumption transaction.
